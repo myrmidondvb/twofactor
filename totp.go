@@ -289,8 +289,8 @@ func (otp *Totp) URL() (string, error) {
 	}
 
 	secret := base32.StdEncoding.EncodeToString(otp.key)
-	u := url.URL{}
-	v := url.Values{}
+	u := URL.URL{}
+	v := URL.Values{}
 	u.Scheme = "otpauth"
 	u.Host = "totp"
 	u.Path = otp.label()
@@ -322,7 +322,7 @@ func (otp *Totp) URL() (string, error) {
 func (otp *Totp) QR() ([]byte, error) {
 
 	// get the URL
-	u, err := otp.url()
+	u, err := otp.URL()
 
 	// check for errors during initialization
 	// this is already done on the URL method
