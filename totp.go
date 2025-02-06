@@ -289,8 +289,8 @@ func (otp *Totp) URL() (string, error) {
 	}
 
 	secret := base32.StdEncoding.EncodeToString(otp.key)
-	u := URL.URL{}
-	v := URL.Values{}
+	u := url.URL{}
+	v := url.Values{}
 	u.Scheme = "otpauth"
 	u.Host = "totp"
 	u.Path = otp.label()
